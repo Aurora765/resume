@@ -1,7 +1,4 @@
-/*  jQuery.print, version 1.0.3
- *  (c) Sathvik Ponangi, Doers' Guild
- * Licence: CC-By (http://creativecommons.org/licenses/by/3.0/)
- *--------------------------------------------------------------------------*/
+
 
 (function($) {"use strict";
     // A nice closure for our definitions
@@ -18,25 +15,21 @@
     }
 
     function isNode(o) {
-        /* http://stackoverflow.com/a/384380/937891 */
         return !!( typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName === "string");
     }
 
 
     $.print = $.fn.print = function() {
-        // Print a given set of elements
 
         var options, $this, self = this;
 
         // console.log("Printing", this, arguments);
 
         if ( self instanceof $) {
-            // Get the node if it is a jQuery object
             self = self.get(0);
         }
 
         if (isNode(self)) {
-            // If `this` is a HTML element, i.e. for
             // $(selector).print()
             $this = $(self);
             if (arguments.length > 0) {
